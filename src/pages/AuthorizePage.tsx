@@ -12,6 +12,7 @@ const AuthorizePage: React.FC = () => {
     };
     return (
         <div>
+
             <button onClick={authorize}>authorize</button>
         </div>
     );

@@ -4,7 +4,7 @@ import {Route, Routes} from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import YandexDiskPage from "./pages/YandexDiskPage";
 import AuthorizePage from "./pages/AuthorizePage";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
 
   return (
