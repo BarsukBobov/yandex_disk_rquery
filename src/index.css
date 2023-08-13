@@ -34,17 +34,9 @@ td{
   width: 80vw;
 
 }
-#col_2{
-  width: 7vw;
+#col_2, #col_3,#col_4{
   text-align: center;
-}
-#col_3{
-  width: 3vw;
-  text-align: center;
-}
-#col_4{
-  width: 4vw;
-  text-align: center;
+  width: 6vw;
 }
 
 
@@ -57,7 +49,7 @@ th>.bi {
   display: flex;
   transition: all .2s ease-in-out;
   justify-content: center;
-  transform: scale(3);
+  transform: scale(2.5);
   position: fixed;
   border-radius: 10em;
   padding-bottom: 3px;
@@ -69,13 +61,10 @@ th>.bi {
 }
 
 .upload:hover{
-  transform: scale(4);
-}
-
-.upload:active{
-  transition: all .1s ease-in-out;
   transform: scale(3);
 }
+
+
 
 .load{
    position: absolute;
@@ -83,10 +72,69 @@ th>.bi {
    top: 50vh;
 }
 
-
-
 .fetch_error{
   position: absolute;
   right: 45vw;
   top: 50vh;
+}
+.progress-content{
+  transition: all .1s ease-in-out;
+  background-color: inherit;
+}
+
+.progress-content>i{
+  height: 10px;
+  width: 10px;
+}
+
+.upload_body{
+  transition: all .2s ease-in-out;
+  border: #373B3E solid 1px;
+  border-radius: 5px;
+  height: 40%;
+  width:30%;
+  position:fixed;
+  bottom:0;
+  right:0;
+  margin:0;
+}
+
+.fileName{
+  margin-right:10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bi-x-lg{
+  cursor: pointer;
+  /*margin-right:10px;*/
+  transition: all .1s ease-in-out;
+}
+
+.bi-x-lg:hover{
+  transform: scale(1.2);
+}
+
+#CancelAll{
+  border-radius: 1em;
+  background-color:  #59698d;
+  padding: 0 4px;
+}
+
+#CancelAll:hover{
+  background-color: #670909;
+}
+.upload_list{
+  padding: 5px;
+  overflow-y: auto;
+  height: 90%;
+
+}
+
+.upload_header{
+  display: flex;
+  justify-content: right;
+  padding: 5px;
+  border-bottom: #373B3E solid 1px;
 }

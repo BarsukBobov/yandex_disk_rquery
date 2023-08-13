@@ -25,7 +25,7 @@ export interface Item {
     exif:              Exif;
     created:           Date;
     resource_id:       string;
-    modified:          Date;
+    modified:          string;
     path:              string;
     comment_ids:       ItemCommentIDS;
     type:              string;
