@@ -1,149 +1,156 @@
-
-
 body {
-
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
 
-
-
-#container
-{
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  height: 56px;
-  margin-top: -28px; /*половина высоты кнопки*/
-  width: 400px;
-  margin-left: -200px;
+#container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 56px;
+    margin-top: -28px; /*половина высоты кнопки*/
+    width: 400px;
+    margin-left: -200px;
 }
 
-th{
-  width: 1vw;
-  vertical-align: middle;
+th {
+    width: 2vw;
+    vertical-align: middle;
 }
 
-td{
-  vertical-align: middle;
+td {
+    vertical-align: middle;
 }
 
 
-#col_1{
-  width: 80vw;
-
-}
-#col_2, #col_3,#col_4{
-  text-align: center;
-  width: 6vw;
-}
-
-
-th>.bi {
-  font-size: 30px;
-}
-
-.upload{
-  cursor: pointer;
-  display: flex;
-  transition: all .2s ease-in-out;
-  justify-content: center;
-  transform: scale(2.5);
-  position: fixed;
-  border-radius: 10em;
-  padding-bottom: 3px;
-  background-color:  #59698d;
-  width: 28px;
-  bottom: 50px;
-  right: 50px;
+#col_1 {
+    width: 80vw;
 
 }
 
-.upload:hover{
-  transform: scale(3);
+#col_2, #col_3, #col_4 {
+    text-align: center;
+    width: 6vw;
 }
 
-
-
-.load{
-   position: absolute;
-   right: 50vw;
-   top: 50vh;
+th > .bi{
+    font-size: 20px;
+}
+ th > input {
+    font-size: 24px;
 }
 
-.fetch_error{
-  position: absolute;
-  right: 45vw;
-  top: 50vh;
-}
-.progress-content{
-  transition: all .1s ease-in-out;
-  background-color: inherit;
-}
-
-.progress-content>i{
-  height: 10px;
-  width: 10px;
-}
-
-.upload_body{
-  transition: all .2s ease-in-out;
-  border: #373B3E solid 1px;
-  border-radius: 5px;
-  height: 40%;
-  width:30%;
-  position:fixed;
-  bottom:0;
-  right:0;
-  margin:0;
-}
-
-.fileName{
-  margin-right:10px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.bi-x-lg{
-  cursor: pointer;
-  /*margin-right:10px;*/
-  transition: all .1s ease-in-out;
-}
-
-.bi-x-lg:hover{
-  transform: scale(1.2);
-}
-
-#CancelAll{
-  border-radius: 1em;
-  background-color:  #59698d;
-  padding: 0 4px;
-}
-
-#CancelAll:hover{
-  background-color: #670909;
-}
-.upload_list{
-  padding: 5px;
-  overflow-y: auto;
-  height: 90%;
+.upload {
+    cursor: pointer;
+    display: flex;
+    transition: all .2s ease-in-out;
+    justify-content: center;
+    transform: scale(2.5);
+    position: fixed;
+    border-radius: 10em;
+    padding-bottom: 3px;
+    background-color: #59698d;
+    width: 28px;
+    bottom: 50px;
+    right: 50px;
 
 }
 
-.upload_header{
-  display: flex;
-  justify-content: right;
-  padding: 5px;
-  border-bottom: #373B3E solid 1px;
+.upload:hover {
+    transform: scale(3);
 }
+
+
+.load {
+    position: absolute;
+    right: 50vw;
+    top: 50vh;
+}
+
+.fetch_error {
+    position: absolute;
+    right: 45vw;
+    top: 50vh;
+}
+
+.progress-content {
+    transition: all .1s ease-in-out;
+    background-color: inherit;
+}
+
+.progress-content > i {
+    height: 10px;
+    width: 10px;
+}
+
+.upload_body {
+    transition: all .2s ease-in-out;
+    border: #373B3E solid 1px;
+    border-radius: 5px;
+    height: 40%;
+    width: 30%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+}
+
+.upload_body > div {
+    background-color: #212529;
+}
+
+.fileName {
+    margin-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.bi-x-lg {
+    cursor: pointer;
+    /*margin-right:10px;*/
+    transition: all .1s ease-in-out;
+}
+
+.bi-x-lg:hover {
+    transform: scale(1.2);
+}
+
+#CancelAll {
+    border-radius: 1em;
+    background-color: #59698d;
+    padding: 0 4px;
+}
+
+#CancelAll:hover {
+    background-color: #670909;
+}
+
+.upload_list {
+    padding: 5px;
+    overflow-y: auto;
+    height: 90%;
+
+}
+
+.upload_header {
+    display: flex;
+    justify-content: right;
+    padding: 5px;
+    border-bottom: #373B3E solid 1px;
+}
+
+.table {
+    border: #373B3E solid 1px;
+}
+

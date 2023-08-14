@@ -1,13 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {Navigate} from "react-router-dom";
-
-
-
-
+import {useTypedSelector} from "../hooks/useTypedSelector";
+import {useActions} from "../hooks/useActions";
 
 
 const AuthorizePage: React.FC = () => {
-    const [show, setShow] = useState(false);
+    const {token} = useTypedSelector(state=>state.login)
+    const {login} = useActions()
+    if (token) return(<Navigate to="/YandexDisk"/>)
+
+    // // redux debug
+    // login("y0_AgAAAAA8SCcyAApUowAAAADqKAR5x-xDGh_gRQihNmZQW56Mifyy1AI")
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(()=>{
         document.documentElement.setAttribute('data-bs-theme','light')
         // @ts-ignore
@@ -32,17 +37,16 @@ const AuthorizePage: React.FC = () => {
             })
             .then(function(data: any) {
                 console.log('Сообщение с токеном: ', data.access_token);
-                setShow(true)
+                login(data.access_token)
             })
             .catch(function(error: any) {
                 console.log('Что-то пошло не так: ', error);
                 document.body.innerHTML += `Что-то пошло не так: ${JSON.stringify(error)}. Обновите страницу`;
             });
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
 
-    if (show) return (<Navigate to="/YandexDisk"/>);
     return (
         <div id="container">
         </div>

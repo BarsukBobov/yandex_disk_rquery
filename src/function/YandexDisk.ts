@@ -67,7 +67,9 @@ export const get_date = (date: string) =>{
 
 export const get_time = (date: string) =>{
     const date_date=new Date(date)
-    const hours= date_date.getHours()
-    const minutes= date_date.getMinutes()
+    let hours:number|string= date_date.getHours()
+    if (hours<10) hours="0"+hours
+    let minutes:number|string= date_date.getMinutes()
+    if (minutes<10) minutes="0"+minutes
     return (`${hours}:${minutes}`)
 }
