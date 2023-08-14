@@ -118,7 +118,6 @@ th > .bi{
 
 .bi-x-lg {
     cursor: pointer;
-    /*margin-right:10px;*/
     transition: all .1s ease-in-out;
 }
 
@@ -154,3 +153,37 @@ th > .bi{
     border: #373B3E solid 1px;
 }
 
+.menu {
+    display: flex;
+    justify-content: left;
+    padding: 5px;
+    border-bottom: #373B3E solid 1px;
+
+}
+.menu>.bi{
+    border-radius: 1em;
+    background-color: #59698d;
+    padding: 0 10px;
+    margin: 5px 10px;
+    cursor: pointer;
+    font-size: 30px;
+    transition: all .1s ease-in-out;
+}
+
+.menu>.bi:hover{
+    transform: scale(1.2);
+}
+.bi-escape:hover {
+    background-color: #1f3e6b;
+}
+
+.bi-ui-checks:hover {
+    background-color: rgb(157, 53, 20);
+}
+.bi-trash3:hover {
+    background-color: #670909;
+
+}
+.bi-cloud-download:hover{
+    background-color: rgba(140, 140, 20, 0.98);
+}

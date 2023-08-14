@@ -25,6 +25,7 @@ const YandexDiskPage = () => {
     console.log("renderYandexDiskPage")
     const [show, setShow] = useState(false);
     const [modal_del, setModal_del] = useState(false);
+    const [modal_down, setModal_down] = useState(false);
     const [path, setPath] = useState("/")
     const [choice, setChoice] = useState(false)
     const [Files, setFiles] = useState<IFile[]>([])
@@ -294,6 +295,7 @@ const YandexDiskPage = () => {
                 console.log(status)
             }
         }
+        setModal_down(false)
     }
 
     function alltoogle(){
@@ -362,10 +364,32 @@ const YandexDiskPage = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-            <button onClick={logout}>выход</button>
-            {!choice ? <button onClick={()=>setChoice(true)}>Выбрать</button> : <button onClick={()=>setChoice(false)}>снять выбор</button>}
-            {choice && <button onClick={()=>setModal_del(true)}>удалить</button>}
-            {choice && <button onClick={download_all}>скачать</button>}
+            <Modal show={modal_down} onHide={()=>setModal_down(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Скачивание файлов</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Вы действительно хотите скачать выделенное?</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="primary" onClick={() => {
+                        download_all()
+                    }}>
+                        Да
+                    </Button>
+                    <Button variant="secondary" onClick={() => {
+                        setModal_down(false)
+                    }}>
+                        Нет
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            <div className="menu">
+                <i className="bi bi-escape" onClick={logout}></i>
+                {!choice ? <i className="bi bi-ui-checks" onClick={()=>setChoice(true)}></i> :
+                    <i className="bi bi-ui-checks" onClick={()=>setChoice(false)}></i>}
+                {choice && <i className="bi bi-trash3" onClick={()=>setModal_del(true)}></i>}
+                {choice && <i className="bi bi-cloud-download" onClick={()=>setModal_down(true)}></i>}
+            </div>
+
             <div className="table-responsive-lg">
                 <table className="table table-dark table-hover">
                     <thead>
