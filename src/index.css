@@ -1,8 +1,7 @@
-html{
-  background-color: rgb(33,37,41);
-}
+
 
 body {
+
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -16,8 +15,18 @@ code {
     monospace;
 }
 
-div{
-  background-color: rgb(33,37,41);
+
+
+
+#container
+{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 56px;
+  margin-top: -28px; /*половина высоты кнопки*/
+  width: 400px;
+  margin-left: -200px;
 }
 
 th{

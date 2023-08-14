@@ -28,7 +28,7 @@ const YandexDiskPage = () => {
             fetchResources(path),
         {
             keepPreviousData: false,
-            refetchInterval: 5000
+            refetchInterval: 10000
         })
     const inputFile = useRef<HTMLInputElement>(null);
     const cancelRef = useRef<Array<HTMLElement | null>>([])
@@ -42,6 +42,7 @@ const YandexDiskPage = () => {
         const config={
             headers: {
                 'Accept': 'application/json',
+                // 'Authorization': 'OAuth y0_AgAAAABwDCZRAApUiwAAAADqJFa_rX1LlZwnTbWQEME5t_imjYlDRzc',
                 'Authorization': 'OAuth y0_AgAAAAA8SCcyAADLWwAAAADo63IbdaS_FcYLT9-t_Onx0ZbtkQ3ZP5k'
             },
             params:{
@@ -195,8 +196,11 @@ const YandexDiskPage = () => {
         }
         setFiles(l2)
     }
-
     useEffect(()=>{
+        document.documentElement.setAttribute('data-bs-theme','dark')
+    },[])
+    useEffect(()=>{
+
         console.log("Effect -fetchUploadLink")
         cancel_upload_array=[]
         count_finished=0
