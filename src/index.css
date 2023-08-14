@@ -6,7 +6,10 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
+span{
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -198,7 +201,7 @@ th > .bi{
     transform: scale(1.2);
 }
 
-.bi-escape:hover {
+.bi-box-arrow-left:hover {
     background-color: #1f3e6b;
 }
 

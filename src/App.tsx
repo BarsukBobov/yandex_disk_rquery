@@ -5,6 +5,7 @@ import YandexDiskPage from "./pages/YandexDiskPage";
 import AuthorizePage from "./pages/AuthorizePage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import RedirectPage from "./pages/RedirectPage";
+
 function App() {
 
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path ="/redirect" element={<RedirectPage/>}/>
         <Route path ="/YandexDisk" element={<YandexDiskPage/>}/>
         <Route path="*" element={<AuthorizePage />} />
+
       </Routes>
   );
 }
