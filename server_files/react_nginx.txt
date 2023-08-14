@@ -1,0 +1,10 @@
+server {
+	listen 80;
+	server_name yaroscosh.ru www.yaroscosh.ru;
+
+	location / {
+		include proxy_params;
+		proxy_pass http://localhost:3000;
+	}
+
+}

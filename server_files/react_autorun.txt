@@ -1,0 +1,19 @@
+[Unit]
+Description=React autorun service
+After=multi-user.target
+[Service]
+Type=idle
+WorkingDirectory=/home/client
+ExecStart=serve -s build
+StandardInput=tty-force
+Restart = always
+RestartSec = 15
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=my-python-react-app
+
+
+KillMode = process
+SendSIGHUP = no
+[Install]
+WantedBy=multi-user.target
