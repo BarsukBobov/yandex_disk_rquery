@@ -4,6 +4,12 @@ Node.js v18.16.0
 # DEMO
 www.yaroscosh.ru
 
+# config.json
+Для запуска на localhost переменную debug ставим в значение true и указываем свой отладочный токен.
+
+Для запуска в продакшене достаточно добавить client_id своего приложения.
+
+
 # CRA
 ### `npm install`
 ### `npm start`
