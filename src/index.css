@@ -50,24 +50,38 @@ th > .bi{
     font-size: 24px;
 }
 
-.upload {
-    cursor: pointer;
+/*.upload {*/
+/*    cursor: pointer;*/
+/*    display: flex;*/
+/*    transition: all .2s ease-in-out;*/
+/*    justify-content: center;*/
+/*    font-size: 30px;*/
+/*    position: fixed;*/
+/*    border-radius: 10em;*/
+/*    padding-bottom: 3px;*/
+/*    background-color: #59698d;*/
+/*    width: 28px;*/
+/*    bottom: 50px;*/
+/*    right: 50px;*/
+/*}*/
+
+.upload{
     display: flex;
-    transition: all .2s ease-in-out;
-    justify-content: center;
-    transform: scale(2.5);
     position: fixed;
-    border-radius: 10em;
-    padding-bottom: 3px;
-    background-color: #59698d;
-    width: 28px;
     bottom: 50px;
     right: 50px;
-
+    border-radius: 1em;
+    background-color: #59698d;
+    padding: 0 9px;
+    margin: 5px 10px;
+    cursor: pointer;
+    font-size: 30px;
+    transition: all .1s ease-in-out;
 }
 
 .upload:hover {
-    transform: scale(3);
+    background-color: rgb(96, 49, 145);
+    transform: scale(1.2);
 }
 
 
@@ -163,7 +177,7 @@ th > .bi{
 .menu>.bi{
     border-radius: 1em;
     background-color: #59698d;
-    padding: 0 10px;
+    padding: 0 9px;
     margin: 5px 10px;
     cursor: pointer;
     font-size: 30px;
