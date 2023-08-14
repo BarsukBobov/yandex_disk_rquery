@@ -9,8 +9,6 @@ import Modal from 'react-bootstrap/Modal';
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {useActions} from "../hooks/useActions";
 import {Navigate} from "react-router-dom";
-import {Download} from "../types/YandexDiskApi/download";
-import Config  from "../config.json"
 
 
 var cancel_upload_array: any[]
@@ -27,7 +25,6 @@ const YandexDiskPage = () => {
 
     const [show, setShow] = useState(false);
     const [modal_del, setModal_del] = useState(false);
-    const [modal_down, setModal_down] = useState(false);
     const [path, setPath] = useState("/")
     const [choice, setChoice] = useState(false)
     const [Files, setFiles] = useState<IFile[]>([])
@@ -250,50 +247,8 @@ const YandexDiskPage = () => {
         await refetch()
     }
 
-    function downloadURI(uri: string, name:string) {
-        let link = document.createElement("a");
-        link.download = name;
-        link.href = `${uri}`;
-        link.target ="_blank"
-        link.click();
-    }
 
-
-    async function download_all(){
-        const checkboxs: NodeListOf<HTMLElement> = document.querySelectorAll("tbody .form-check-input")
-        if (!checkboxs) return
-        let l: string[] = []
-        checkboxs.forEach((checkbox) => {
-                // @ts-ignore
-                if (checkbox.checked) l.push(checkbox.getAttribute("value"))
-            }
-        )
-        setChoice(false)
-        for (let download_path of l) {
-            const config = {
-                headers: {
-                    'Accept': 'application/json',
-                    'Authorization': `OAuth ${token}`
-                },
-                params: {
-                    path: download_path
-                },
-            }
-            const url = "https://cloud-api.yandex.net/v1/disk/resources/download"
-            try {
-                const response = await axios.get<Download>(url, config)
-                downloadURI(response.data.href, download_path)
-
-            } catch (error) {
-                const er = error as AxiosError
-                const status = er.response?.status
-                console.log(status)
-            }
-        }
-        setModal_down(false)
-    }
-
-    function alltoogle(){
+       function alltoogle(){
         const checkboxs: NodeListOf<HTMLElement> = document.querySelectorAll(".form-check-input")
         if (!checkboxs) return
         const allcheck=checkboxs[0]
@@ -322,10 +277,6 @@ const YandexDiskPage = () => {
         if (!status) return null
         return <div className={"fetch_error"}>Нет доступа к Яндекс диску: {resources_error(status)}</div>
     }
-
-
-
-
 
 
     return (
@@ -363,30 +314,11 @@ const YandexDiskPage = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-            <Modal show={modal_down} onHide={()=>setModal_down(false)}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Скачивание файлов</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>Вы действительно хотите скачать выделенное?</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="primary" onClick={() => {
-                        download_all()
-                    }}>
-                        Да
-                    </Button>
-                    <Button variant="secondary" onClick={() => {
-                        setModal_down(false)
-                    }}>
-                        Нет
-                    </Button>
-                </Modal.Footer>
-            </Modal>
             <div className="menu">
                 <i className="bi bi-box-arrow-left" onClick={logout}></i>
                 {!choice ? <i className="bi bi-ui-checks" onClick={()=>setChoice(true)}></i> :
                     <i className="bi bi-ui-checks onCheck" onClick={()=>setChoice(false)}></i>}
                 {choice && <i className="bi bi-trash3" onClick={()=>setModal_del(true)}></i>}
-                {choice && <i className="bi bi-cloud-download" onClick={()=>setModal_down(true)}></i>}
             </div>
 
             <div className="table-responsive-lg">
