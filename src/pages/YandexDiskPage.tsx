@@ -22,7 +22,7 @@ interface IFile {
 
 
 const YandexDiskPage = () => {
-    console.log("renderYandexDiskPage")
+
     const [show, setShow] = useState(false);
     const [modal_del, setModal_del] = useState(false);
     const [modal_down, setModal_down] = useState(false);
@@ -47,12 +47,9 @@ const YandexDiskPage = () => {
         current?.click();
     };
 
-    useEffect(() => {
-        document.documentElement.setAttribute('data-bs-theme', 'dark')
-    }, [])
 
     useEffect(() => {
-            console.log("Effect -fetchUploadLink")
+
             cancel_upload_array = []
             count_finished = 0
             cancel_all = false
@@ -107,7 +104,6 @@ const YandexDiskPage = () => {
         const CancelToken = axios.CancelToken;
         const source = CancelToken.source();
         cancel_upload_array.push(source)
-        console.log(cancel_upload_array)
         const cancel_el = cancelRef.current[file_i.id]
         if (!cancel_el) return;
         cancel_el.onclick = () => source.cancel()
@@ -136,10 +132,8 @@ const YandexDiskPage = () => {
         } catch (error) {
             const er = error as AxiosError
             const status = er.response?.status
-            console.log(status)
             if (!status) return
             const error_message = upload_error(status)
-            console.log(error_message)
             current.style.width = "100%"
             current.style.backgroundColor = "#670909"
             child2.textContent = error_message
@@ -243,8 +237,7 @@ const YandexDiskPage = () => {
             }
             const url = "https://cloud-api.yandex.net/v1/disk/resources"
             try {
-                const response = await axios.delete(url, config)
-                console.log(response)
+                await axios.delete(url, config)
             } catch (error) {
                 const er = error as AxiosError
                 const status = er.response?.status
@@ -287,7 +280,6 @@ const YandexDiskPage = () => {
             const url = "https://cloud-api.yandex.net/v1/disk/resources/download"
             try {
                 const response = await axios.get<Download>(url, config)
-                console.log(response.data.href)
                 downloadURI(response.data.href)
             } catch (error) {
                 const er = error as AxiosError
@@ -385,7 +377,7 @@ const YandexDiskPage = () => {
             <div className="menu">
                 <i className="bi bi-escape" onClick={logout}></i>
                 {!choice ? <i className="bi bi-ui-checks" onClick={()=>setChoice(true)}></i> :
-                    <i className="bi bi-ui-checks" onClick={()=>setChoice(false)}></i>}
+                    <i className="bi bi-ui-checks onCheck" onClick={()=>setChoice(false)}></i>}
                 {choice && <i className="bi bi-trash3" onClick={()=>setModal_del(true)}></i>}
                 {choice && <i className="bi bi-cloud-download" onClick={()=>setModal_down(true)}></i>}
             </div>
@@ -395,7 +387,7 @@ const YandexDiskPage = () => {
                     <thead>
                     <tr>
                         {!choice?<th style={{cursor: "pointer", visibility: root ? "hidden" : "visible"}} onClick={() =>
-                            setPath(back())} scope="row"><i className="bi bi-box-arrow-left"></i></th>
+                            setPath(back())} scope="row"><i className="bi bi-arrow-left"></i></th>
                         :<th scope="row">
                                 <input className="form-check-input" type="checkbox" id="checkboxNoLabel"
                                 onClick={alltoogle}/>
@@ -465,7 +457,7 @@ const YandexDiskPage = () => {
                 <div className={"upload"} onClick={onButtonClick}>
                     <input type='file' id='file' multiple onChange={selectImage} ref={inputFile}
                            style={{display: 'none'}}/>
-                    <i className="bi bi-upload"></i>
+                    <i className="bi bi-cloud-arrow-up"></i>
                 </div>
 
             }

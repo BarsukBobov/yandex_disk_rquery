@@ -17,10 +17,20 @@ code {
     position: absolute;
     left: 50%;
     top: 50%;
-    height: 56px;
-    margin-top: -28px; /*половина высоты кнопки*/
-    width: 400px;
+    margin-top: -150px; /*половина высоты кнопки*/
+    width: 300px;
     margin-left: -200px;
+    cursor: pointer;
+    border-radius: 300px;
+    background-color: white;
+    transition: all .1s ease-in-out;
+}
+
+#container:hover{
+    transform: scale(1.5);
+}
+#yandexlogo{
+    height: 300px;
 }
 
 th {
@@ -68,14 +78,13 @@ th > .bi{
 .upload{
     display: flex;
     position: fixed;
-    bottom: 50px;
-    right: 50px;
+    bottom: 40px;
+    right: 40px;
     border-radius: 1em;
     background-color: #59698d;
-    padding: 0 9px;
-    margin: 5px 10px;
+    padding: 0 13px;
     cursor: pointer;
-    font-size: 30px;
+    font-size: 50px;
     transition: all .1s ease-in-out;
 }
 
@@ -174,6 +183,7 @@ th > .bi{
     border-bottom: #373B3E solid 1px;
 
 }
+
 .menu>.bi{
     border-radius: 1em;
     background-color: #59698d;
@@ -187,6 +197,7 @@ th > .bi{
 .menu>.bi:hover{
     transform: scale(1.2);
 }
+
 .bi-escape:hover {
     background-color: #1f3e6b;
 }
@@ -194,10 +205,19 @@ th > .bi{
 .bi-ui-checks:hover {
     background-color: rgb(157, 53, 20);
 }
+
+.bi-ui-checks.onCheck{
+    background-color: rgb(157, 53, 20);
+}
+
 .bi-trash3:hover {
     background-color: #670909;
-
 }
+
 .bi-cloud-download:hover{
     background-color: rgba(140, 140, 20, 0.98);
 }
+.bi-box-arrow-left:hover{
+    transform: scale(1.2);
+}
+
